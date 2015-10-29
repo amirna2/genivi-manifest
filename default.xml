@@ -20,5 +20,6 @@
     <project path="meta-ivi" name="meta-ivi" revision="master" />
     <project path="meta-genivi-demo" name="meta-genivi-demo" revision="master" />
     <project path="meta-raspberry"   name="meta-raspberry" revision="master" />
+    <project path="buildenv"   name="buildenv" revision="master" />
       
 </manifest>
