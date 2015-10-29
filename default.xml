@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote fetch="https://github.com/amirna2" name="amir-github" review="" />
+    <remote fetch="https://github.com/meta-qt5" name="qt5" review="" />
+    <remote fetch="git://git.openembedded.org" name="oe" review=""/>
+    <remote fetch="git://git.yoctoproject.org" name="yocto" review=""/>
+    
+    <default remote="amir-github" revision="master"/>
+    
+    <!-- List all the repositories you want to fetch -->
+    <!-- "name"     git repository's name on hosting server
+         "remote"   the remote host from above (if not the default)
+         "revision" commitish to checkout (if not the default)
+         "path"     directory where git repository gets cloned/synced 
+    -->   
+    <project path="meta-openembedded" remote="oe" name="meta-openembedded" revision="5b0305d9efa4b5692cd942586fb7aa92dba42d59" />
+    <project path="poky" remote="yocto" name="poky" revision="eb4a134a60e3ac26a48379675ad6346a44010339" />  
+    <project path="meta-qt5" remote="qt5" name="meta-qt5" revision="adeca0db212d61a933d7952ad44ea1064cfca747" />
+    
+    <project path="meta-ivi" name="meta-ivi" revision="master" />
+    <project path="meta-genivi-demo" name="meta-genivi-demo" revision="master" />
+    <project path="meta-raspberry"   name="meta-raspberry" revision="master" />
+      
+</manifest>
