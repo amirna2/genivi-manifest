@@ -74,7 +74,6 @@ BBLAYERS_NON_REMOVABLE ?= " \
 
 For build/conf/local.conf
 
-#MACHINE ??= "vexpressa9"
 MACHINE ??= "raspberrypi2"
 GPU_MEM = "128"
 CORE_IMAGE_EXTRA_INSTALL += "wayland weston"
