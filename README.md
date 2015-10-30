@@ -1,13 +1,9 @@
 # genivi-manifest
 Repo manifest for fetching genivi and raspberry Pi2 yocto layers
 
-What is this?
--------------
-
 This manifest is a 'repo' manifest [1] that manages the trees for this
-Yocto project. Any OpenEmbedded based distribution ends up as a
-large collection of git trees (oe-core, bitbake, meta-oe, ...),
-and 'repo' is used as a tool to manage this collection.
+Yocto project. Any OpenEmbedded based distribution ends up as a large collection 
+of git trees (oe-core, bitbake, meta-oe, ...), and 'repo' is used as a tool to manage this collection.
 
 [1] http://code.google.com/p/git-repo/
 
@@ -38,12 +34,13 @@ Do not forget to add ~/bin permanently to your PATH.
 2. Fetch all git trees
 ======================
 
-To initialize your local working repository:
+- Initialize your local working repository:
+
 $ mkdir -p ~/projects/genivi-rpi2
 $ cd ~/projects/genivi-rpi2
 $ repo init -u https://github.com/amirna2/genivi-manifest.git -b master
 
-and to checkout all project trees:
+- Checkout all project trees:
 
 $ repo sync
 
@@ -55,8 +52,8 @@ $ source ./buildenv/meta-ivi-rpi-init-build-env
 4. Edit bblayers.conf and local.conf
 ====================================
 
-For build/conf/bblayers.conf
-----------------------------
+- For build/conf/bblayers.conf
+
 BBLAYERS ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta \
   /home/anathoo/projects/genivi-rpi2/poky/meta-yocto \
@@ -75,8 +72,8 @@ BBLAYERS_NON_REMOVABLE ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-ivi/meta-ivi \
   "
  
-For build/conf/local.conf
--------------------------
+- For build/conf/local.conf
+
 #MACHINE ??= "vexpressa9"
 MACHINE ??= "raspberrypi2"
 GPU_MEM = "128"
@@ -93,12 +90,13 @@ MULTI_PROVIDER_WHITELIST += " \
 6. Start the build
 ==================
 
-$ bitbake -v kronos-image
+$ bitbake -v genivi-demo-platform
 
 7. Flash Image on the SD card
 =============================
 
-replace sdX with the correct device ID
+Replace sdX with the correct device ID
+
 sudo umount /dev/sdX
-sudo dd if=./tmp/deploy/images/raspberrypi2/kronos-image-dev-raspberrypi2.rpi-sdimg  of=/dev/sdX bs=128M
+sudo dd if=./tmp/deploy/images/raspberrypi2/genivi-demo-platform-raspberrypi2.rpi-sdimg  of=/dev/sdX bs=128M
 sync
