@@ -34,13 +34,13 @@ Do not forget to add ~/bin permanently to your PATH.
 2. Fetch all git trees
 ======================
 
-- Initialize your local working repository:
+Initialize your local working repository:
 
 $ mkdir -p ~/projects/genivi-rpi2
 $ cd ~/projects/genivi-rpi2
 $ repo init -u https://github.com/amirna2/genivi-manifest.git -b master
 
-- Checkout all project trees:
+Checkout all project trees:
 
 $ repo sync
 
@@ -52,7 +52,7 @@ $ source ./buildenv/meta-ivi-rpi-init-build-env
 4. Edit bblayers.conf and local.conf
 ====================================
 
-- For build/conf/bblayers.conf
+For build/conf/bblayers.conf
 
 BBLAYERS ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta \
@@ -71,8 +71,8 @@ BBLAYERS_NON_REMOVABLE ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta-yocto \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-ivi/meta-ivi \
   "
- 
-- For build/conf/local.conf
+
+For build/conf/local.conf
 
 #MACHINE ??= "vexpressa9"
 MACHINE ??= "raspberrypi2"
