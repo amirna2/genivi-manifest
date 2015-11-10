@@ -10,7 +10,6 @@ of git trees (oe-core, bitbake, meta-oe, ...), and 'repo' is used as a tool to m
 Build Instructions:
 
 ##1. Install 'repo'
-----
 
 The first thing to do in order to use this manifest, is to install
 the 'repo' tool wrapper, and that needs to be done on each machine (or user).
@@ -32,7 +31,7 @@ $ export PATH=~/bin:$PATH
 Do not forget to add ~/bin permanently to your PATH.
 
 ##2. Fetch all git trees
-----
+
 
 Initialize your local working repository:
 ```
@@ -50,7 +49,7 @@ $ repo sync
 $ source ./buildenv/meta-ivi-rpi-init-build-env
 ```
 ##4. Edit bblayers.conf and local.conf
-----
+
 For build/conf/bblayers.conf
 ```
 BBLAYERS ?= " \
@@ -91,12 +90,12 @@ MULTI_PROVIDER_WHITELIST += " \
 #INCOMPATIBLE_LICENSE ?= "GPLv3"
 ```
 ##5. Start the build
-----
+
 ```
 $ bitbake -v genivi-demo-platform
 ```
 ##6. Flash Image on the SD card
-----
+
 
 Replace sdX with the correct device ID
 ```
