@@ -85,6 +85,8 @@ MULTI_PROVIDER_WHITELIST += " \
              virtual/libgles2 \
              virtual/mesa \
              "
+#Comment out due to avoid bitbake error with some GPLv3 licensed componnents             
+#INCOMPATIBLE_LICENSE ?= "GPLv3"
 
 6. Start the build
 ==================
