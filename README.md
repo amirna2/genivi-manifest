@@ -9,51 +9,50 @@ of git trees (oe-core, bitbake, meta-oe, ...), and 'repo' is used as a tool to m
 
 Build Instructions:
 
-1. Install 'repo'
-=================
+##1. Install 'repo'
+----
 
 The first thing to do in order to use this manifest, is to install
 the 'repo' tool wrapper, and that needs to be done on each machine (or user).
 
 The following instructions can be used:
-
+```
 $ curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > /tmp/repo
 $ chmod a+x /tmp/repo
 $ sudo mv /tmp/repo /usr/local/bin/
-
+```
 Alternatively, if you don't have 'administrative' permission, or prefer to
 install in a user $HOME folder, you can do something along these lines:
-
+```
 $ mkdir ~/bin
 $ curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
 $ chmod a+x ~/bin/repo
 $ export PATH=~/bin:$PATH
-
+```
 Do not forget to add ~/bin permanently to your PATH.
 
-2. Fetch all git trees
-======================
+##2. Fetch all git trees
+----
 
 Initialize your local working repository:
-
+```
 $ mkdir -p ~/projects/genivi-rpi2
 $ cd ~/projects/genivi-rpi2
 $ repo init -u https://github.com/amirna2/genivi-manifest.git -b master
-
+```
 Checkout all project trees:
-
+```
 $ repo sync
+```
+##3. Run the build setup script (this will create a build folder)
 
-3. Run the build setup script (this will create a build folder)
-===============================================================
-
+```
 $ source ./buildenv/meta-ivi-rpi-init-build-env
-
-4. Edit bblayers.conf and local.conf
-====================================
-
+```
+##4. Edit bblayers.conf and local.conf
+----
 For build/conf/bblayers.conf
-
+```
 BBLAYERS ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta \
   /home/anathoo/projects/genivi-rpi2/poky/meta-yocto \
@@ -71,9 +70,9 @@ BBLAYERS_NON_REMOVABLE ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta-yocto \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-ivi/meta-ivi \
   "
-
+```
 For build/conf/local.conf
-
+```
 MACHINE ??= "raspberrypi2"
 GPU_MEM = "128"
 CORE_IMAGE_EXTRA_INSTALL += "wayland weston"
@@ -85,19 +84,23 @@ MULTI_PROVIDER_WHITELIST += " \
              virtual/libgles2 \
              virtual/mesa \
              "
+```
+
+```
 #Comment out due to avoid bitbake error with some GPLv3 licensed componnents             
 #INCOMPATIBLE_LICENSE ?= "GPLv3"
-
-6. Start the build
-==================
-
+```
+##5. Start the build
+----
+```
 $ bitbake -v genivi-demo-platform
-
-7. Flash Image on the SD card
-=============================
+```
+##6. Flash Image on the SD card
+----
 
 Replace sdX with the correct device ID
-
-sudo umount /dev/sdX
-sudo dd if=./tmp/deploy/images/raspberrypi2/genivi-demo-platform-raspberrypi2.rpi-sdimg  of=/dev/sdX bs=128M
-sync
+```
+$sudo umount /dev/sdX
+$sudo dd if=./tmp/deploy/images/raspberrypi2/genivi-demo-platform-raspberrypi2.rpi-sdimg  of=/dev/sdX bs=128M
+$sync
+```
