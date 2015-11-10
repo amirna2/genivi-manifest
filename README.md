@@ -86,7 +86,7 @@ MULTI_PROVIDER_WHITELIST += " \
 ```
 
 ```
-#Comment out due to avoid bitbake error with some GPLv3 licensed componnents             
+#Comment out to avoid bitbake error with some GPLv3 licensed componnents             
 #INCOMPATIBLE_LICENSE ?= "GPLv3"
 ```
 ##5. Start the build
