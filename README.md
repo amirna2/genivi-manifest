@@ -64,7 +64,7 @@ BBLAYERS ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-ivi/meta-ivi-bsp \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-genivi-demo \
   /home/anathoo/projects/genivi-rpi2/poky/../meta-qt5 \
-  /home/anathoo/projects/genivi-rpi2/poky/../meta-raspberrypi \
+  /home/anathoo/projects/genivi-rpi2/poky/../meta-raspberry \
   "
 BBLAYERS_NON_REMOVABLE ?= " \
   /home/anathoo/projects/genivi-rpi2/poky/meta \
