@@ -1,5 +1,5 @@
 # genivi-manifest
-Repo manifest for fetching genivi and raspberry Pi2 yocto layers
+Repo manifest for fetching GENIVI and Raspberry Pi 2 Yocto layers
 
 This manifest is a 'repo' manifest [1] that manages the trees for this
 Yocto project. Any OpenEmbedded based distribution ends up as a large collection 
@@ -48,7 +48,7 @@ $ repo sync
 ```
 $ source ./buildenv/meta-ivi-rpi-init-build-env
 ```
-##4. Edit bblayers.conf and local.conf
+##4. Edit conf/bblayers.conf and conf/local.conf
 
 For build/conf/bblayers.conf
 ```
@@ -86,7 +86,7 @@ MULTI_PROVIDER_WHITELIST += " \
 ```
 
 ```
-#Comment out to avoid bitbake error with some GPLv3 licensed componnents             
+#Comment out to avoid bitbake error with some GPLv3 licensed components             
 #INCOMPATIBLE_LICENSE ?= "GPLv3"
 ```
 ##5. Start the build
@@ -94,7 +94,7 @@ MULTI_PROVIDER_WHITELIST += " \
 ```
 $ bitbake -v genivi-demo-platform
 ```
-##6. Flash Image on the SD card
+##6. Flash image on the SD card
 
 
 Replace sdX with the correct device ID
