@@ -16,7 +16,7 @@ the 'repo' tool wrapper, and that needs to be done on each machine (or user).
 
 The following instructions can be used:
 ```
-$ curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > /tmp/repo
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > /tmp/repo
 $ chmod a+x /tmp/repo
 $ sudo mv /tmp/repo /usr/local/bin/
 ```
