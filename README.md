@@ -1,37 +1,15 @@
 # genivi-manifest
-Repo manifest for fetching GENIVI and Raspberry Pi 2 Yocto layers
 
-This manifest is a 'repo' manifest [1] that manages the trees for this
-Yocto project. Any OpenEmbedded based distribution ends up as a large collection 
-of git trees (oe-core, bitbake, meta-oe, ...), and 'repo' is used as a tool to manage this collection.
+##Pre-requisites
 
-[1] http://code.google.com/p/git-repo/
+To build GENIVI DEMO Platform for the Raspberry Pi2 from this repository it is necessary to install
+google repo tool to fetch the Yocto layers recipes.
+The repo tool uses a manifest found in this repository (default.xml) to fetch the Yocto layers specifically needed for this build.
 
-Build Instructions:
+Instructions for installing repo can be found here (you only need to care about the Installing Repo section):
+http://source.android.com/source/downloading.html#installing-repo
 
-##1. Install 'repo'
-
-The first thing to do in order to use this manifest, is to install
-the 'repo' tool wrapper, and that needs to be done on each machine (or user).
-
-The following instructions can be used:
-```
-$ curl https://raw.githubusercontent.com/amirna2/genivi-manifest/master/repo > /tmp/repo
-$ chmod a+x /tmp/repo
-$ sudo mv /tmp/repo /usr/local/bin/
-```
-Alternatively, if you don't have 'administrative' permission, or prefer to
-install in a user $HOME folder, you can do something along these lines:
-```
-$ mkdir ~/bin
-$ curl https://raw.githubusercontent.com/amirna2/genivi-manifest/master/repo > ~/bin/repo
-$ chmod a+x ~/bin/repo
-$ export PATH=~/bin:$PATH
-```
-Do not forget to add ~/bin permanently to your PATH.
-
-##2. Fetch all git trees
-
+##1. Fetch all git trees
 
 Initialize your local working repository:
 ```
@@ -43,12 +21,12 @@ Checkout all project trees:
 ```
 $ repo sync
 ```
-##3. Run the build setup script (this will create a build folder)
+##2. Run the build setup script (this will create a build folder)
 
 ```
 $ source ./buildenv/meta-ivi-rpi-init-build-env
 ```
-##4. Edit conf/bblayers.conf and conf/local.conf
+##3. Edit conf/bblayers.conf and conf/local.conf
 
 For build/conf/bblayers.conf
 ```
@@ -89,12 +67,12 @@ MULTI_PROVIDER_WHITELIST += " \
 #Comment out to avoid bitbake error with some GPLv3 licensed components             
 #INCOMPATIBLE_LICENSE ?= "GPLv3"
 ```
-##5. Start the build
+##4. Start the build
 
 ```
 $ bitbake -v genivi-demo-platform
 ```
-##6. Flash image on the SD card
+##5. Flash image on the SD card
 
 
 Replace sdX with the correct device ID
